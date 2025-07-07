@@ -11,10 +11,10 @@ class ProctoringProPage {
   }
 
   async clickBuyNow() {
-   // Wait for the button to be attached to the DOM and visible
-   await this.buyNowButton.first().waitFor({ state: 'visible', timeout: 15000 });
-   await this.buyNowButton.first().click();
-   await this.page.waitForTimeout(5000); // Reduce wait for faster feedback
+    // Wait for the button to be attached to the DOM and visible
+    await this.buyNowButton.first().waitFor({ state: 'visible', timeout: 15000 });
+    await this.buyNowButton.first().click();
+    await this.page.waitForTimeout(5000);
   }
 }
 
