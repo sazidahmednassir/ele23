@@ -7,11 +7,14 @@ class ProctoringProPage {
    */
   constructor(page) {
     this.page = page;
-    this.heading = page.locator('h1, h2, h3'); // Adjust selector as needed
+    this.buyNowButton = page.locator('a.elementor-button .elementor-button-text', { hasText: 'Buy Now' });
   }
 
-  async isLoaded() {
-    await expect(this.heading).toContainText(/proctoring pro/i);
+  async clickBuyNow() {
+   // Wait for the button to be attached to the DOM and visible
+   await this.buyNowButton.first().waitFor({ state: 'visible', timeout: 15000 });
+   await this.buyNowButton.first().click();
+   await this.page.waitForTimeout(5000); // Reduce wait for faster feedback
   }
 }
 
