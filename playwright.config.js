@@ -3,7 +3,7 @@
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   testDir: './tests',
-  timeout: 100000,
+  timeout: 30000,
   retries: 0,
   use: {
     headless: false,
