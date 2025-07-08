@@ -1,5 +1,8 @@
 // tests/pages/HomePage.js
 const { expect } = require('@playwright/test');
+const { ProctoringProPage } = require('./ProctoringProPage');
+const { LoginPage } = require('./LoginPage');
+const { CheckoutPage } = require('./CheckoutPage');
 
 class HomePage {
   /**
@@ -22,6 +25,18 @@ class HomePage {
   async clickGetProctoringPro() {
     await this.getProctoringProButton.click();
     await this.page.waitForTimeout(10000);
+  }
+
+  static async validateHomepagetoCheckoutPage(page){
+     const home = new HomePage(page);
+    await home.goto();
+    await home.clickGetProctoringPro();
+    const proctoringProPage = new ProctoringProPage(page);
+    await proctoringProPage.clickBuyNow();
+    const loginPage = new LoginPage(page);
+    await loginPage.login('sazidnx23@yopmail.com', 'Punch@500#$');
+    const checkoutPage = new CheckoutPage(page);
+    await checkoutPage.checkoutPageValidation();
   }
 }
 
