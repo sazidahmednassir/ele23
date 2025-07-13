@@ -2,9 +2,7 @@
 const { expect } = require('@playwright/test');
 
 class ProctoringProPage {
-  /**
-   * @param {import('@playwright/test').Page} page
-   */
+ 
   constructor(page) {
     this.page = page;
     this.buyNowButton = page.locator('a.elementor-button .elementor-button-text', { hasText: 'Buy Now' });
