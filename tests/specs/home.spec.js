@@ -1,13 +1,7 @@
-import {test} from '@playwright/test';
-const { initAllActions, getHomeActions } = require('../actions');
+const { test } = require("../fixtures/actionFixture");
 
-test.describe('Home Page Functional Tests', () => {
-  test.beforeEach(async ({ page }) => {
-    initAllActions(page); // ✅ initialize once before each test
+test.describe("Home Page Tests", () => {
+  test("Go to checkout and login", async ({ actions }) => {
+    await actions.home.navigateToCheckout();
   });
-
-  test('Navigate home to Checkout page', async () => {
-    await getHomeActions().navigateToCheckout();
-  });
-
 });

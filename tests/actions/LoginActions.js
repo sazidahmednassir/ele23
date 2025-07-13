@@ -3,7 +3,7 @@ import LoginObject from "../pages/LoginObject";
 class LoginActions {
   constructor(page) {
     this.page = page;
-    this.login = new LoginObject(page); // ✅ class name matches
+    this.login = new LoginObject(page);
   }
 
   async loginUser(username, password) {
