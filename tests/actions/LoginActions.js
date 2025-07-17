@@ -1,14 +1,15 @@
-import LoginObject from "../pages/LoginObject";
+const LoginObject = require("../pages/LoginObject");
 
 class LoginActions {
   constructor(page) {
     this.page = page;
+    this.loginObject = new LoginObject(page);
   }
 
   async loginUser(username, password) {
-    await LoginObject.username().fill(username);
-    await LoginObject.password().fill(password);
-    await LoginObject.signInButton().click();
+    await this.loginObject.username().fill(username);
+    await this.loginObject.password().fill(password);
+    await this.loginObject.signInButton().click();
   }
 }
 

@@ -2,24 +2,19 @@ const HomeObjects = require("../pages/HomeObject");
 const LoginObject = require("../pages/LoginObject");
 const { expect } = require("@playwright/test");
 
-class HomeActions extends HomeObjects {
+class HomeActions {
   constructor(page) {
-    super(page); // ✅ Inherit locators from HomeObjects
-    this.login = new LoginObject(page); // ✅ Create login object
+    this.page = page;
+    this.homeObjects = new HomeObjects(page);
+    this.loginObject = new LoginObject(page);
   }
 
   async navigateToCheckout() {
     await this.page.goto("https://elearning23.com/");
-
-    // await expect(this.getHeading()).toContainText(
-    //   "Secure Moodle Exams with Proctoring Pro"
+    // await expect(this.homeObjects.getHeading()).toContainText(
+    //   "Secure Online Exam with Moodle and Proctoring Pro"
     // );
-
-    await this.getProctoringProButton().click();
-
-    await this.login.username().fill("sazidnx23@yopmail.com");
-    await this.login.password().fill("Punch@500#$");
-
+    await this.homeObjects.getProctoringProButton().click();
     await this.page.waitForTimeout(2000);
   }
 }
