@@ -6,7 +6,7 @@ exports.test = base.extend({
   actions: async ({ page }, use) => {
     const actions = {
       home: new HomeActions(page),
-      // login: new LoginActions(page), // add more as needed
+      login: new LoginActions(page),
     };
     await use(actions);
   },
