@@ -1,4 +1,4 @@
-const HomeObjects = require("../pages/HomeObject");
+const HomePage = require("../pages/HomePage");
 const { expect } = require("@playwright/test");
 
 class HomeActions {
@@ -9,11 +9,11 @@ class HomeActions {
   async navigateToCheckout() {
     await this.page.goto("https://elearning23.com/");
 
-    // await expect(this.getHeading()).toContainText(
-    //   "Secure Moodle Exams with Proctoring Pro"
-    // );
+    await expect(HomePage.getHeading(this.page)).toContainText(
+      "Secure Online Exam with Moodle and Proctoring Pro"
+    );
 
-    await HomeObjects.getProctoringProButton(this.page).click();
+    await HomePage.getProctoringProButton(this.page).click();
 
     await this.page.waitForTimeout(2000);
   }

@@ -1,4 +1,4 @@
-const LoginObject = require("../pages/LoginObject");
+const LoginPage = require("../pages/LoginPage");
 
 class LoginActions {
   constructor(page) {
@@ -6,9 +6,9 @@ class LoginActions {
   }
 
   async loginUser(username, password) {
-    await LoginObject.username(this.page).fill(username);
-    await LoginObject.password(this.page).fill(password);
-    await LoginObject.signInButton(this.page).click();
+    await LoginPage.username(this.page).fill(username);
+    await LoginPage.password(this.page).fill(password);
+    await LoginPage.signInButton(this.page).click();
   }
 }
 
