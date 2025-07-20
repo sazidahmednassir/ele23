@@ -1,6 +1,7 @@
 const HomePage = require("../pages/HomePage");
 const { expect } = require("@playwright/test");
 const CommonUtils = require("../utils/common");
+const { getConfig } = require("../utils/env");
 
 class HomeActions {
   constructor(page) {
@@ -8,7 +9,8 @@ class HomeActions {
   }
 
   async homeUrl(){
-    await this.page.goto("https://elearning23.com/");
+    const config = getConfig();
+    await this.page.goto(config.baseUrl);
   }
 
   async headingverify(){

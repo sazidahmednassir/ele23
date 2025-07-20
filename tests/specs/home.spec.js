@@ -22,7 +22,7 @@ test.describe("Home Page Tests", () => {
 
   test("Go to checkout and login", async ({ actions }) => {
     await actions.home.navigateToCheckout();
-    await actions.login.loginUser("sazidnx23@yopmail.com", "One@500#$");
+    await actions.login.loginUser();
   
   });
 });

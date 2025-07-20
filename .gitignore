@@ -4,3 +4,6 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /allure-results
+# Don't commit environment files with credentials
+.env
+.env.local
