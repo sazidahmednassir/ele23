@@ -2,8 +2,27 @@
 const { test } = require("../fixture/customfixture");
 
 test.describe("Home Page Tests", () => {
+
+  test.beforeEach(async ({ actions }) => {
+    await actions.home.homeUrl();
+  });
+
+  test("Verify First heading text", async ({ actions }) => {
+    await actions.home.headingverify();
+  });
+
+
+  test("Verify Second heading text", async ({ actions }) => {
+    await actions.home.secondHeadingverify();
+  });
+
+  test("Verify Third heading text", async ({ actions }) => {
+    await actions.home.thirdHeadingverify();
+  });
+
   test("Go to checkout and login", async ({ actions }) => {
     await actions.home.navigateToCheckout();
-    await actions.login.loginUser("sazidnx23@yopmail.com", "Punch@500#$");
+    await actions.login.loginUser("sazidnx23@yopmail.com", "One@500#$");
+  
   });
 });
