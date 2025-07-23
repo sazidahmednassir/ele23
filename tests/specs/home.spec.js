@@ -8,7 +8,7 @@ test.describe("Home Page Tests", () => {
   });
 
   test("Verify First heading text", async ({ actions }) => {
-    await actions.home.headingverify();
+    await actions.home.firstHeadingVerify();
   });
 
 

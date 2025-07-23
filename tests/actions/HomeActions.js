@@ -13,10 +13,15 @@ class HomeActions {
     await this.page.goto(config.baseUrl);
   }
 
-  async headingverify(){
+  async firstHeadingVerify(){
     await expect(HomePage.getHeading(this.page)).toContainText(
       "Secure Online Exam with Moodle and Proctoring Pro"
     );
+   const firstProctoringDescription = HomePage.getFirstProctoringDescription(this.page);
+    await expect(firstProctoringDescription).toContainText(
+      "Enhance academic integrity with our powerful Moodle Proctoring Pro Plugin"
+    );
+
   }
 
   async secondHeadingverify(){
