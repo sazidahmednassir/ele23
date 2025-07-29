@@ -7,8 +7,8 @@ test.describe("Home Page Tests", () => {
     await actions.home.homeUrl();
   });
 
-  test("Verify First heading text", async ({ actions }) => {
-    await actions.home.firstHeadingVerify();
+  test("Verify the First Section", async ({ actions }) => {
+    await actions.home.firstSectionVerify();
   });
 
 

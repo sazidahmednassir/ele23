@@ -13,13 +13,27 @@ class HomeActions {
     await this.page.goto(config.baseUrl);
   }
 
-  async firstHeadingVerify(){
+  async firstSectionVerify(){
     await expect(HomePage.getHeading(this.page)).toContainText(
       "Secure Online Exam with Moodle and Proctoring Pro"
     );
    const firstProctoringDescription = HomePage.getFirstProctoringDescription(this.page);
     await expect(firstProctoringDescription).toContainText(
       "Enhance academic integrity with our powerful Moodle Proctoring Pro Plugin"
+    );
+
+    const firstButton = HomePage.getFirstButton(this.page);
+    await expect(firstButton).toBeVisible();
+
+    const secondButton= HomePage.getSecondButton(this.page);
+    await expect(secondButton).toBeVisible();
+
+    const video = HomePage.getVideo(this.page);
+    await expect(video).toBeVisible();
+
+    const institutionsLogoText = HomePage.getFirstLogoText(this.page);
+    await expect(institutionsLogoText).toContainText(
+      "Trusted by 1800+ institutions"
     );
 
   }
